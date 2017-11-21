@@ -1,39 +1,44 @@
---==========================================================================================================================
--- DISTRICTS
+ DISTRICTS
 --==========================================================================================================================
 -- Types
-
+--------------------------------------------------------------------------------------------------------------------------
 INSERT INTO Types	
-		(Type,									Kind)
-VALUES	('DISTRICT_SCECRL_YEHAKIN',		'KIND_DISTRICT');
-
+		(Type,								Kind)
+VALUES	('DISTRICT_SCECRL_YEHAKIN',			'KIND_DISTRICT');
+--------------------------------------------------------------------------------------------------------------------------
 -- Districts
-
+--------------------------------------------------------------------------------------------------------------------------
 INSERT INTO Districts
-		(DistrictType,							Name,										Description,									 TraitType,											Cost, 	PrereqTech, Aqueduct, PlunderType, PlunderAmount, AdvisorType, CostProgressionModel, CostProgressionParam1, RequiresPlacement, RequiresPopulation, NoAdjacentCity, InternalOnly, ZOC, CaptureRemovesBuildings, CaptureRemovesCityDefenses, MilitaryDomain, TravelTime, CityStrengthModifier)
-SELECT	'DISTRICT_SCECRL_YEHAKIN',			'LOC_DISTRICT_SCECRL_YEHAKIN_NAME',	'LOC_DISTRICT_SCECRL_YEHAKIN_DESCRIPTION',	 'TRAIT_CIVILIZATION_DISTRICT_SCECRL_YEHAKIN',	Cost/2, PrereqTech, Aqueduct, PlunderType, PlunderAmount, AdvisorType, CostProgressionModel, CostProgressionParam1, RequiresPlacement, RequiresPopulation, NoAdjacentCity, InternalOnly, ZOC, CaptureRemovesBuildings, CaptureRemovesCityDefenses, MilitaryDomain, TravelTime, CityStrengthModifier
+		(DistrictType,						Name,								Description,								 TraitType,										Cost, 	PrereqTech, PrereqCivic, Aqueduct, PlunderType, PlunderAmount, AdvisorType, CostProgressionModel, CostProgressionParam1, RequiresPlacement, OnePerCity, RequiresPopulation, NoAdjacentCity, InternalOnly, ZOC, CaptureRemovesBuildings, CaptureRemovesCityDefenses, MilitaryDomain, TravelTime, CityStrengthModifier, Housing)
+SELECT	'DISTRICT_SCECRL_YEHAKIN',			'LOC_DISTRICT_SCECRL_YEHAKIN_NAME',	'LOC_DISTRICT_SCECRL_YEHAKIN_DESCRIPTION',	 'TRAIT_CIVILIZATION_DISTRICT_JFD_NAUKOGRAD',	Cost/2, PrereqTech, PrereqCivic, Aqueduct, PlunderType, PlunderAmount, AdvisorType, CostProgressionModel, CostProgressionParam1, RequiresPlacement, 0,			RequiresPopulation, NoAdjacentCity, InternalOnly, ZOC, CaptureRemovesBuildings, CaptureRemovesCityDefenses, MilitaryDomain, TravelTime, CityStrengthModifier, Housing
 FROM Districts WHERE DistrictType = 'DISTRICT_NEIGHBORHOOD';
-
+--------------------------------------------------------------------------------------------------------------------------
 -- DistrictReplaces
-
+--------------------------------------------------------------------------------------------------------------------------
 INSERT INTO DistrictReplaces
-		(CivUniqueDistrictType,					ReplacesDistrictType)
-VALUES	('DISTRICT_SCECRL_YEHAKIN',		'DISTRICT_NEIGHBORHOOD');
+		(CivUniqueDistrictType,				ReplacesDistrictType)
+VALUES	('DISTRICT_SCECRL_YEHAKIN',			'DISTRICT_NEIGHBORHOOD');
+--------------------------------------------------------------------------------------------------------------------------
+-- District_GreatPersonPoints
+--------------------------------------------------------------------------------------------------------------------------
+INSERT INTO District_GreatPersonPoints
+		(DistrictType,						GreatPersonClassType,		PointsPerTurn)
+SELECT 	'DISTRICT_SCECRL_YEHAKIN',			GreatPersonClassType,		PointsPerTurn
+FROM District_GreatPersonPoints WHERE DistrictType = 'DISTRICT_NEIGHBORHOOD';
 
--- AppealHousingChanges
+-- District_TradeRouteYields
 
-INSERT INTO AppealHousingChanges
-		(DistrictType,						Description,	AppealChange,	MinimumValue)
-SELECT 	'DISTRICT_SCECRL_YEHAKIN',			Description,	AppealChange,	MinimumValue
-FROM AppealHousingChanges WHERE DistrictType = 'DISTRICT_NEIGHBORHOOD';
+INSERT INTO District_TradeRouteYields
+		(DistrictType,						YieldType,	YieldChangeAsOrigin,	YieldChangeAsDomesticDestination,	YieldChangeAsInternationalDestination)
+SELECT 	'DISTRICT_SCECRL_YEHAKIN',			YieldType,	YieldChangeAsOrigin,	YieldChangeAsDomesticDestination,	YieldChangeAsInternationalDestination
+FROM District_TradeRouteYields WHERE DistrictType = 'DISTRICT_NEIGHBORHOOD';
 
 -- District_ValidTerrains
 
 INSERT INTO District_ValidTerrains
-		(DistrictType,							TerrainType)
+		(DistrictType,						TerrainType)
 SELECT 	'DISTRICT_SCECRL_YEHAKIN',			TerrainType
 FROM District_ValidTerrains WHERE DistrictType = 'DISTRICT_NEIGHBORHOOD';
-
 -- District_Adjacencies
 
 INSERT INTO District_Adjacencies
