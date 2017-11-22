@@ -23,7 +23,7 @@
 			<Text>Est. 14,000-21,000</Text>
 		</Row>
 		<Row Tag="LOC_CIVINFO_SCECRL_POWHATAN_SIZE" Language="en_US">
-			<Text></Text>
+			<Text>Est. 8,000 sq mi (20,000 sq km)</Text>
 		</Row>
 		<Row Tag="LOC_CIVINFO_SCECRL_POWHATAN_CAPITAL" Language="en_US">
 			<Text>Werowocomoco</Text>
@@ -216,7 +216,7 @@
 			<Text>Wahunsenacawh</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_SCECRL_WAHUNSENACAWH_SUBTITLE" Language="en_US">
-			<Text>Weroance of the Powhatan</Text>
+			<Text>Mamanatowick of the Powhatan</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_SCECRL_WAHUNSENACAWH_QUOTE" Language="en_US">
 			<Text>Why should you take by force that from us that which you can have by love?</Text>
@@ -394,7 +394,7 @@
 		</Row>
 		<!--NEPAMOTAMEN-->
 		<Row Tag="LOC_UNIT_SCECRL_NEPAMOTAMEN_NAME" Language="en_US">
-			<Text>Nepamotamen</Text>
+			<Text>Nepemotamen</Text>
 		</Row>
 		<Row Tag="LOC_UNIT_SCECRL_NEPAMOTAMEN_DESCRIPTION" Language="en_US">
 			<Text>Malinese unique Medieval melee unit. Can heal adjacent units and can move after attacking. Cheaper to train although slightly weaker in combat.</Text>
@@ -414,6 +414,12 @@
 		<!--MOD SUPPORT-->
 		<!--JFD Rule with Faith (Wahunsenacawh)-->
 		<Row Tag="LOC_GOVERNMENT_JFD_CHIEFDOM_LEADER_TITLE_SCECRL_WAHUNSENACAWH" Language="en_US">
+			<Text>Chief</Text>
+		</Row>
+		<Row Tag="LOC_GOVERNMENT_JFD_HORDE_LEADER_TITLE_SCECRL_WAHUNSENACAWH" Language="en_US">
+			<Text>Chief</Text>
+		</Row>
+		<Row Tag="LOC_GOVERNMENT_JFD_POLIS_LEADER_TITLE_SCECRL_WAHUNSENACAWH" Language="en_US">
 			<Text>Chief</Text>
 		</Row>
 		<Row Tag="LOC_GOVERNMENT_JFD_AUTOCRACY_LEADER_TITLE_SCECRL_WAHUNSENACAWH" Language="en_US">
